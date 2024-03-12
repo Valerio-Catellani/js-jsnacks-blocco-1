@@ -18,15 +18,17 @@
 
 <body>
   <div class="container my-5 d-flex flex-column p-4 bg-light border rounded-3">
-    <h2 class="text-center mb-3 ">Snack 1</h2>
+    <h2 class="text-center mb-3 fs-1">Array Lista</h2>
+    <h3 class=" mb-4 "></h3>
     <div class="mb-3">
-      <label for="user-input" class="form-label">Inserisci un numero, se è pari ne stampa il valore, se è dispari
-        stampa quello successivo</label>
-      <input type="number" class="form-control" id="user-input" placeholder="inserisci un numero">
+      <label for="user-input" class="form-label">Frutto da Aggiunere (default pesca)</label>
+      <input type="text" class="form-control" id="user-input" placeholder="" value="Pesca">
     </div>
     <div class="buttons d-flex gap-5 justify-content-center ">
-      <button id="send-button" type="button" class="btn btn-lg  btn-success align-self-center ">Invia i dati</button>
-      <button id="cancel-button" type="button" class="btn btn-lg btn-danger align-self-center ">cancella</button>
+      <button id="send-button" type="button" class="btn btn-lg  btn-success align-self-center ">Inserisci
+        Frutto</button>
+      <button id="cancel-button" type="button" class="btn btn-lg btn-danger align-self-center ">Rimuovi l'ultimo frutto
+        aggiunto</button>
     </div>
     <div id="response" class="container border rounded-2 my-3 py-3" style="height: 100px">
     </div>
@@ -37,7 +39,7 @@
 
 
   <script src="resources/js/hypeUtility.js" type="text/javascript"></script>
-  <script src="resources/js/script.js" type="text/javascript"></script>
+  <script src="resources/js/array-lista-script.js" type="text/javascript"></script>
 </body>
 
 <style>
