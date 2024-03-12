@@ -18,21 +18,35 @@
 
 <div class="container my-5 d-flex flex-column p-4 bg-light border rounded-3">
   <h2 class="text-center mb-3 ">Array Tail</h2>
-  <h3>Array</h3>
+  <h3>Full Array</h3>
   <div class="bg-warning bg-opacity-75 p-4 border border-dark border-2 rounded-2 mb-4 overflow-y-auto ">
     <h4 class=" mb-4 small"></h4>
   </div>
-  <div class="mb-3">
-    <label for="number-of-elements" class="form-label">Crea un array di numeri interi casuali</label>
-    <input type="number" class="form-control" id="number-of-elements"
-      placeholder="inserisci il numero di elementi random da generare nell'array">
+  <div id="array-creation">
+    <div class="mb-3" id="array-creation">
+      <label for="number-of-elements" class="form-label">Crea un array di numeri interi casuali</label>
+      <input type="number" class="form-control" id="number-of-elements"
+        placeholder="inserisci il numero di elementi random da generare nell'array">
+    </div>
+    <div class="buttons d-flex gap-5 justify-content-center ">
+      <button id="generate-array-button" type="button" class="btn btn-lg  btn-success align-self-center ">Genera
+        Array</button>
+    </div>
   </div>
-  <div class="buttons d-flex gap-5 justify-content-center ">
-    <button id="generate-array-button" type="button" class="btn btn-lg  btn-success align-self-center ">Genera
-      Array</button>
-    <button id="cancel-button" type="button" class="btn btn-lg btn-danger align-self-center ">cancella</button>
-  </div>
-  <div id="response" class="container border rounded-2 my-3 py-3 overflow-y-auto " style="height: 100px">
+  <div id="last-numbers" class="d-none d-flex justify-content-center flex-column ">
+    <div class="mb-3">
+      <label for="last-numbers-input" class="form-label">Stampa gli ultimi n elementi dell'Array (default 5)</label>
+      <input type="number" class="form-control" id="last-numbers-input"
+        placeholder="inserisci il numero degli ultimi elementi da stampare" value="5">
+    </div>
+    <div class="buttons d-flex gap-5 justify-content-center ">
+      <button id="last-numbers-button" type="button" class="btn btn-lg  btn-success align-self-center">Ottieni gli
+        ultimi
+        numeri</button>
+    </div>
+    <div id="response" class="container border rounded-2 my-3 py-3 overflow-y-auto " style="height: 100px">
+    </div>
+    <button id="cancel-button" type="button" class="btn btn-lg btn-danger align-self-center ">Cancella</button>
   </div>
 </div>
 

@@ -10,30 +10,47 @@
 
 //input
 let numberOfElements = document.getElementById("number-of-elements");
+let lastNumbers = document.getElementById("last-numbers-input")
 //buttons
 let generateArrayButton = document.getElementById("generate-array-button");
 let cancelButton = document.getElementById("cancel-button");
+let lastNumbersButton = document.getElementById("last-numbers-button")
 //output
 let response = document.getElementById("response");
 let arrayOutput = document.querySelector("h4")
-
-
+//variables
+let arrayRandom = [];
 
 generateArrayButton.addEventListener('click', function () {
     let elements = parseInt(numberOfElements.value)
     if (isNaN(elements)) {
         alert("Devi inserire un numero valido!")
     } else {
-        let arrayRandom = [];
+        arrayRandom = [];
         for (let i = 0; i < elements; i++) {
             arrayRandom.push(getRndInteger(1, 100))
         }
         arrayOutput.innerHTML = `[${arrayRandom}]`;
+        document.querySelector("#array-creation").classList.add("d-none");
+        document.querySelector("#last-numbers").classList.remove("d-none");
+
     }
-
-
 })
-cancelButton2.addEventListener('click', function () {
-    userInput2.value = "";
-    response2.innerHTML = "";
+
+lastNumbersButton.addEventListener('click', function () {
+    lastNumbers.value = parseInt(lastNumbers.value);
+    if (lastNumbers.value > arrayRandom.length) {
+        alert(`assicurati che il numero inserito(${lastNumbers.value}) non superi la lunghezza dell'array generato (${arrayRandom.length})`)
+    } else {
+        let newArray = arrayRandom.slice(arrayRandom.length - lastNumbers.value)
+        response.innerHTML = `gli ultimi ${lastNumbers.value} numeri sono ${newArray}`
+    }
+})
+
+
+cancelButton.addEventListener('click', function () {
+    document.querySelector("#array-creation").classList.remove("d-none");
+    document.querySelector("#last-numbers").classList.add("d-none");
+    arrayRandom = [];
+    arrayOutput.innerHTML = lastNumbers.value = numberOfElements.value = ``;
 })
