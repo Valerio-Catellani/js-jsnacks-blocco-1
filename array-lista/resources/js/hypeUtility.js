@@ -15,6 +15,10 @@ function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function hypeCapitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+} //return a string with capitalize
+
 function isaN(value) {
     return !isNaN(value)
 }

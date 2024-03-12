@@ -12,30 +12,55 @@
 // Suggerimenti/Indicazioni:
 // Sì, lo sappiamo che esiste la funzione includes() ma noi non la vogliamo utilizzare per cercare nel frigorifero.
 
-let userInput = document.getElementById("user-input");
-let addFruit = document.getElementById("send-button");
+//input
+let insertFruit = document.getElementById("insert-fruit");
+let checkFruit = document.getElementById("check-fruit");
+//pulsanti
+let addFruitButton = document.getElementById("insert-fruit-button");
 let cancelButton = document.getElementById("cancel-button");
+let checkFruitButton = document.getElementById("check-fruit-button");
+//output
 let response = document.getElementById("response");
-let fridgeOutput = document.querySelector("h3");
+let fridgeOutput = document.querySelector("h4");
+//variables
 let fridge = ["banana", "mela", "pera", "ciliegia", "arancia", "mandarino", "cocomero", "limone", "fragola"];
+//functions
 fridgeContainer();
 function fridgeContainer() {
-    fridgeOutput.innerHTML = `Frigorifero: ${fridge}`
+    fridgeOutput.innerHTML = fridge
 };
 
 
 
 
-addFruit.addEventListener('click', function () {
-    fridge.push(userInput.value.toLowerCase());
-    fridgeContainer();
+addFruitButton.addEventListener('click', function () {
+    insertFruit.value = insertFruit.value.toLowerCase();
+    if (insertFruit.value) { //dovrei controllare che non sia stato già inserito, potrei farlo brevemente con includes, o in alternativa un ciclo for che controlla tutti gli elementi dell'array fridge e mi da in uscita (return) un valore vero o falso a seconda che un flag sia verificato o meno. Possibile sviluppo. //& my bonus.
+        fridge.push(insertFruit.value);
+        fridgeContainer();
+    } else {
+        alert("Inserisci un frutto nel campo appropriato")
+    }
+})
+
+checkFruitButton.addEventListener('click', function () {
+    let fruit = checkFruit.value.toLowerCase();
+    let checkFlag = false;
+    for (let i = 0; i < fridge.length; i++) {
+        fruit === fridge[i] ? checkFlag = true : "";
+    }
+    response.innerHTML = checkFlag === true ? `${hypeCapitalize(fruit)} Trovato! Devo solo preparare il cocktail.` : `Oh no, devo uscire a comprare il ${fruit}!`
 })
 
 cancelButton.addEventListener('click', function () {
-    userInput.value = response.innerHTML = "";
+    insertFruit.value = "pesca";
+    response.innerHTML = "";
     fridge.pop();
     fridgeContainer();
 })
+
+
+
 
 
 

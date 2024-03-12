@@ -13,22 +13,34 @@
   <link rel="stylesheet" href="resources/css/style.css">
   <link rel="stylesheet" href="resources/css/animation.css">
   <link rel="stylesheet" href="resources/css/media-query.css">
-  <title>Document</title>
+  <title>ArrayLista</title>
 </head>
 
 <body>
   <div class="container my-5 d-flex flex-column p-4 bg-light border rounded-3">
     <h2 class="text-center mb-3 fs-1">Array Lista</h2>
-    <h3 class=" mb-4 "></h3>
+    <h3>Frigorifero</h3>
+    <div class="bg-info p-4 border border-dark border-2 rounded-2 mb-4 overflow-y-auto ">
+      <h4 class=" mb-4 small"></h4>
+    </div>
     <div class="mb-3">
-      <label for="user-input" class="form-label">Frutto da Aggiunere (default pesca)</label>
-      <input type="text" class="form-control" id="user-input" placeholder="" value="Pesca">
+      <label for="insert-fruit" class="form-label">Frutto da Aggiunere (default pesca)</label>
+      <input type="text" class="form-control" id="insert-fruit" placeholder="" value="pesca">
     </div>
     <div class="buttons d-flex gap-5 justify-content-center ">
-      <button id="send-button" type="button" class="btn btn-lg  btn-success align-self-center ">Inserisci
+      <button id="insert-fruit-button" type="button" class="btn btn-lg  btn-success align-self-center ">Inserisci
         Frutto</button>
       <button id="cancel-button" type="button" class="btn btn-lg btn-danger align-self-center ">Rimuovi l'ultimo frutto
         aggiunto</button>
+    </div>
+    <div class="my-5">
+      <label for="check-fruit" class="form-label">Verificare la disponibilità di un frutto nel frigo (default
+        cocomero)</label>
+      <input type="text" class="form-control" id="check-fruit" placeholder="" value="cocomero">
+    </div>
+    <div class="buttons d-flex gap-5 justify-content-center ">
+      <button id="check-fruit-button" type="button" class="btn btn-lg  btn-success align-self-center ">Verifica
+        Disponibilità</button>
     </div>
     <div id="response" class="container border rounded-2 my-3 py-3" style="height: 100px">
     </div>
