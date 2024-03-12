@@ -31,15 +31,13 @@ function fridgeContainer() {
 };
 
 
-
-
 addFruitButton.addEventListener('click', function () {
     insertFruit.value = insertFruit.value.toLowerCase();
-    if (insertFruit.value) { //dovrei controllare che non sia stato già inserito, potrei farlo brevemente con includes, o in alternativa un ciclo for che controlla tutti gli elementi dell'array fridge e mi da in uscita (return) un valore vero o falso a seconda che un flag sia verificato o meno. Possibile sviluppo. //& my bonus.
+    if (insertFruit.value && hasAlready(insertFruit.value)) { //& my bonus.
         fridge.push(insertFruit.value);
         fridgeContainer();
     } else {
-        alert("Inserisci un frutto nel campo appropriato")
+        alert("Inserisci un frutto nel campo appropriato che non sia già presente!");
     }
 })
 
@@ -53,14 +51,23 @@ checkFruitButton.addEventListener('click', function () {
 })
 
 cancelButton.addEventListener('click', function () {
-    insertFruit.value = "pesca";
-    response.innerHTML = "";
-    fridge.pop();
-    fridgeContainer();
+    insertFruit.value = insertFruit.value.toLowerCase();
+
+    if (insertFruit.value && !hasAlready(insertFruit.value)) { //& my bonus.
+        fridge = fridge.filter(item => item !== insertFruit.value);
+        fridgeContainer();
+    } else {
+        alert(`Non ho trovato ${insertFruit.value} da rimuovere!`);
+    }
 })
 
 
-
-
-
-
+//&My bonus.
+function hasAlready(element) {
+    for (let i = 0; i < fridge.length; i++) {
+        if (element === fridge[i]) {
+            return false;
+        }
+    }
+    return true;
+}
